@@ -1,21 +1,21 @@
-/* Variáveis CSS para temas */
+/* Variáveis CSS para temas - Fácil de ajustar as cores globais */
 :root {
-  --bg-color: #ffffff;
-  --text-color: #1a1a1a;
-  --primary-color: #4f73ff;
-  --input-bg: #f1f1f1;
-  --border-color: #cccccc;
-  --header-bg: #ffffff;
-  --nav-link-color: #1a1a1a;
-  --nav-link-hover: #3366cc;
-  --button-bg: #3366cc;
-  --button-hover-bg: #254d99;
-  --panel-bg: #ffffff; /* Fundo dos painéis como task-wrapper, tips-panel */
-  --panel-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  --comment-item-bg: #f0f0f0;
+  --bg-color: #ffffff; /* Cor de fundo padrão (clara) */
+  --text-color: #1a1a1a; /* Cor do texto padrão (escura) */
+  --primary-color: #4f73ff; /* Cor principal de botões, etc. */
+  --input-bg: #f1f1f1; /* Fundo de inputs e textareas */
+  --border-color: #cccccc; /* Cor da borda */
+  --header-bg: #ffffff; /* Fundo do cabeçalho */
+  --nav-link-color: #1a1a1a; /* Cor dos links da navegação */
+  --nav-link-hover: #3366cc; /* Cor dos links da navegação ao passar o mouse */
+  --button-bg: #3366cc; /* Fundo dos botões gerais (exceto submit de form) */
+  --button-hover-bg: #254d99; /* Fundo dos botões ao passar o mouse */
+  --panel-bg: #ffffff; /* Fundo de painéis como task-wrapper, tips-panel */
+  --panel-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra padrão */
+  --comment-item-bg: #f0f0f0; /* Fundo dos itens de comentário */
 }
 
-/* Modo Escuro */
+/* Modo Escuro: Define as variáveis CSS para cores escuras */
 body.dark-mode {
   --bg-color: #121212;
   --text-color: #e1e1e1;
@@ -24,10 +24,10 @@ body.dark-mode {
   --header-bg: #1e1e1e;
   --nav-link-color: #e1e1e1;
   --nav-link-hover: #88aaff;
-  --button-bg: #3366cc; /* Mantendo o azul para contraste */
+  --button-bg: #3366cc; /* Mantendo o azul para contraste em botões */
   --button-hover-bg: #254d99;
-  --panel-bg: #282828; /* Fundo mais escuro para painéis */
-  --panel-shadow: 0 2px 12px rgba(0, 0, 0, 0.6); /* Sombra mais forte no dark */
+  --panel-bg: #282828;
+  --panel-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
   --comment-item-bg: #252525;
 }
 
@@ -40,9 +40,9 @@ body.dark-mode {
 
 body {
   font-family: "Segoe UI", sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
+  background-color: var(--bg-color); /* Usa a variável para o fundo do body */
+  color: var(--text-color); /* Usa a variável para a cor do texto do body */
+  transition: background-color 0.3s, color 0.3s; /* Transição suave para mudança de tema */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -55,7 +55,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background-color: var(--header-bg);
+  background-color: var(--header-bg); /* Usa a variável para o fundo do header */
   padding: 15px 30px;
   display: flex;
   align-items: center;
@@ -67,7 +67,7 @@ body {
 }
 
 .site-nav h1 {
-  color: var(--text-color);
+  color: var(--text-color); /* Usa a variável para o h1 */
   font-weight: 700;
   font-size: 1.5rem;
   transition: color 0.3s;
@@ -77,7 +77,7 @@ body {
 .nav-direita {
   display: flex;
   align-items: center;
-  gap: 16px; /* Para melhor espaçamento entre logo/h1/menu e botões */
+  gap: 16px;
 }
 
 .logo {
@@ -92,7 +92,7 @@ body {
 }
 
 .site-nav ul li a {
-  color: var(--nav-link-color);
+  color: var(--nav-link-color); /* Usa a variável para os links da navegação */
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
@@ -101,15 +101,15 @@ body {
 
 .site-nav ul li a:hover,
 .site-nav ul li a[aria-current="page"] {
-  color: var(--nav-link-hover);
+  color: var(--nav-link-hover); /* Usa a variável para o hover dos links */
   text-decoration: underline;
 }
 
 /* Botões de Notificação e Modo */
 #notificationBtn,
 #modo-btn {
-  background-color: var(--button-bg);
-  color: white; /* Cor do ícone */
+  background-color: var(--button-bg); /* Usa a variável para o fundo dos botões */
+  color: white;
   border: none;
   padding: 10px 14px;
   border-radius: 50px;
@@ -120,28 +120,28 @@ body {
 
 #notificationBtn:hover,
 #modo-btn:hover {
-  background-color: var(--button-hover-bg);
+  background-color: var(--button-hover-bg); /* Usa a variável para o hover dos botões */
   transform: scale(1.1);
 }
 
-/* Área de Notificação e Dropdown (Para o sininho) */
+/* Área de Notificação e Dropdown */
 .notification-area {
-    position: relative; /* Para posicionar o dropdown relativo a ele */
-    display: inline-block; /* Para que o botão e dropdown não ocupem a largura toda */
+    position: relative;
+    display: inline-block;
 }
 
 .dropdown {
     position: absolute;
-    top: 45px; /* Ajuste para aparecer logo abaixo do botão */
+    top: 45px;
     right: 0;
-    background-color: var(--input-bg);
-    border: 1px solid var(--border-color);
+    background-color: var(--input-bg); /* Usa a variável para o fundo do dropdown */
+    border: 1px solid var(--border-color); /* Usa a variável para a borda */
     border-radius: 6px;
     padding: 12px;
-    box-shadow: var(--panel-shadow); /* Reutiliza a sombra do painel */
-    color: var(--text-color);
+    box-shadow: var(--panel-shadow); /* Usa a variável para a sombra */
+    color: var(--text-color); /* Usa a variável para o texto */
     min-width: 220px;
-    z-index: 10; /* Garante que fique acima de outros elementos */
+    z-index: 10;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
@@ -150,7 +150,7 @@ main {
   padding: 30px 24px;
   display: flex;
   justify-content: center;
-  margin-top: 90px; /* Espaço para o cabeçalho fixo */
+  margin-top: 90px;
   width: 100%;
 }
 
@@ -159,25 +159,25 @@ main {
   gap: 40px;
   width: 100%;
   max-width: 1300px;
-  background-color: var(--panel-bg);
+  background-color: var(--panel-bg); /* Usa a variável para o fundo do wrapper */
   padding: 20px;
   border-radius: 8px;
-  box-shadow: var(--panel-shadow);
+  box-shadow: var(--panel-shadow); /* Usa a variável para a sombra */
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .task-form-section {
   flex: 2;
   min-width: 320px;
-  padding-right: 20px; /* Adicionado para separar do tips-panel */
-  border-right: 1px solid var(--border-color); /* Linha divisória */
+  padding-right: 20px;
+  border-right: 1px solid var(--border-color); /* Usa a variável para a borda */
   transition: border-color 0.3s;
 }
 
 .task-form-section h1 {
   margin-bottom: 20px;
   font-size: 28px;
-  color: var(--text-color);
+  color: var(--text-color); /* Usa a variável para o h1 da seção */
   transition: color 0.3s;
 }
 
@@ -190,7 +190,7 @@ form > div {
 label {
   font-weight: 500;
   margin-bottom: 6px;
-  color: var(--text-color);
+  color: var(--text-color); /* Usa a variável para os labels */
   transition: color 0.3s;
 }
 
@@ -199,9 +199,9 @@ textarea,
 select {
   padding: 10px;
   border-radius: 6px;
-  border: 1px solid var(--border-color);
-  background-color: var(--input-bg);
-  color: var(--text-color);
+  border: 1px solid var(--border-color); /* Usa a variável para a borda */
+  background-color: var(--input-bg); /* Usa a variável para o fundo */
+  color: var(--text-color); /* Usa a variável para o texto */
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
@@ -213,7 +213,7 @@ textarea {
 button[type="submit"] {
   margin-top: 10px;
   padding: 10px 16px;
-  background-color: var(--primary-color);
+  background-color: var(--primary-color); /* Usa a variável para o fundo */
   color: white;
   border: none;
   border-radius: 6px;
@@ -228,13 +228,13 @@ button[type="submit"]:hover {
 /* Tips Panel e Comentários */
 .tips-panel {
   flex: 1;
-  background-color: var(--panel-bg); /* Usando variável de painel */
-  border: 1px solid var(--border-color);
+  background-color: var(--panel-bg); /* Usa a variável para o fundo */
+  border: 1px solid var(--border-color); /* Usa a variável para a borda */
   border-radius: 8px;
   padding: 20px;
-  color: var(--text-color);
+  color: var(--text-color); /* Usa a variável para o texto */
   font-weight: 500;
-  box-shadow: var(--panel-shadow);
+  box-shadow: var(--panel-shadow); /* Usa a variável para a sombra */
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -245,7 +245,7 @@ button[type="submit"]:hover {
   margin-bottom: 16px;
   font-weight: 700;
   font-size: 22px;
-  color: var(--text-color); /* Garante que o título mude */
+  color: var(--text-color); /* Usa a variável para o título */
   transition: color 0.3s;
 }
 
@@ -253,13 +253,13 @@ button[type="submit"]:hover {
   list-style: disc inside;
   line-height: 1.6;
   font-size: 16px;
-  color: var(--text-color); /* Garante que a lista mude */
+  color: var(--text-color); /* Usa a variável para a lista */
   transition: color 0.3s;
 }
 
 .comment-section h2 {
   margin-bottom: 15px;
-  color: var(--text-color); /* Garante que o título mude */
+  color: var(--text-color); /* Usa a variável para o título */
   transition: color 0.3s;
 }
 
@@ -269,9 +269,9 @@ button[type="submit"]:hover {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 6px;
-  border: 1px solid var(--border-color);
-  background-color: var(--input-bg);
-  color: var(--text-color);
+  border: 1px solid var(--border-color); /* Usa a variável para a borda */
+  background-color: var(--input-bg); /* Usa a variável para o fundo */
+  color: var(--text-color); /* Usa a variável para o texto */
   resize: vertical;
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
@@ -292,14 +292,14 @@ button[type="submit"]:hover {
 }
 
 .comment-item {
-  background-color: var(--comment-item-bg); /* Usando variável para o item */
-  border: 1px solid var(--border-color);
+  background-color: var(--comment-item-bg); /* Usa a variável para o fundo do item */
+  border: 1px solid var(--border-color); /* Usa a variável para a borda */
   border-radius: 6px;
   padding: 10px;
   margin-top: 10px;
   font-size: 0.95em;
   line-height: 1.4;
   word-wrap: break-word;
-  color: var(--text-color); /* Garante que o texto do comentário mude */
+  color: var(--text-color); /* Usa a variável para o texto do comentário */
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
