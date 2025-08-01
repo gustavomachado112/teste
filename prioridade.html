@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prioridades - Agenda Inteligente</title>
+  <link rel="stylesheet" href="prioridades.css" />
+  <script src="prioridades.js" defer></script>
+</head>
+<body>
+
+<header>
+  <nav class="site-nav" role="navigation" aria-label="Menu principal">
+    <div class="nav-esquerda">
+      <img src="logo.png" alt="Logo Agenda Inteligente" class="logo" />
+      <h1>Agenda Inteligente</h1>
+      <ul>
+   <li><a href="index.html">Início</a></li>
+        <li><a href="tarefa.html">Tarefas</a></li>
+        <li><a href="usuario.html">Perfil</a></li>
+        <li><a href="agendas.html">Agendas</a></li>
+        <li><a href="recorrencia.html">Recorrência</a></li>
+        <li><a href="status.html">Status</a></li>
+        <li><a href="evento.html">Eventos</a></li>
+        <li><a href="prioridades.html" aria-current="page">Prioridades</a></li>
+      </ul>
+    </div>
+    <div class="nav-direita">
+      <button id="notificationBtn" aria-label="Notificações">🔔</button>
+      <button id="modo-btn" aria-label="Alternar modo claro/escuro">🌙</button>
+    </div>
+  </nav>
+</header>
+
+<div id="notificationDropdown" class="dropdown" hidden>
+  No momento você não tem nenhuma notificação.
+</div>
+
+<main>
+  <div class="prioridades-content">
+    <section class="form-section container" aria-labelledby="formTitle">
+      <h1 id="formTitle">Adicionar Nova Prioridade</h1>
+      <form id="formPrioridade" aria-label="Formulário para adicionar nova prioridade">
+        <div class="form-group">
+          <label for="nome">Nome da Prioridade:</label>
+          <input type="text" id="nome" required placeholder="Ex: Projeto X" />
+        </div>
+
+        <div class="form-group">
+          <label for="urgencia">Nível de Urgência:</label>
+          <select id="urgencia" required>
+            <option value="">Selecione</option>
+            <option value="Baixa">Baixa</option>
+            <option value="Média">Média</option>
+            <option value="Alta">Alta</option>
+            <option value="Urgente">Urgente</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="descricao">Descrição:</label>
+          <textarea id="descricao" required placeholder="Detalhes da prioridade..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="lista">Lista / Categoria:</label>
+          <input type="text" id="lista" required placeholder="Ex: Pessoal, Trabalho, Compras" />
+        </div>
+
+        <button type="submit">Adicionar Prioridade</button>
+      </form>
+    </section>
+
+    <section id="prioridadesList" class="prioridades-list container" aria-labelledby="listTitle">
+      <h2 id="listTitle">Minhas Prioridades</h2>
+      <p class="no-priorities-message">Nenhuma prioridade adicionada ainda.</p>
+      </section>
+  </div>
+</main>
+
+</body>
+</html>
