@@ -32,6 +32,8 @@ body {
   color: var(--text-color);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
+  /* Garante que o body não transborde horizontalmente */
+  overflow-x: hidden;
 }
 
 .site-nav {
@@ -141,7 +143,6 @@ body.dark-mode #modo-btn:hover {
   background-color: #254d99;
 }
 
-
 .dropdown {
   position: absolute;
   top: 70px;
@@ -150,18 +151,20 @@ body.dark-mode #modo-btn:hover {
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   color: var(--notif-text);
   width: 280px;
   z-index: 1500;
 }
 
 main {
-  max-width: 1200px;
+  /* Usamos calc para garantir que o padding não cause estouro */
+  max-width: calc(1200px - 48px); /* 1200px (max-width) - 24px (padding esq) - 24px (padding dir) */
   margin: 2rem auto;
   padding: 0 24px;
   margin-top: 90px;
-  width: 100%;
+  width: 100%; /* Garante que o main ocupe 100% da largura disponível */
+  box-sizing: border-box; /* Inclui padding e borda na largura total do elemento */
 }
 
 .agenda-content {
@@ -170,7 +173,6 @@ main {
   gap: 2rem;
   justify-content: flex-start;
 }
-
 
 .agenda-dados,
 .compartilhamento,
@@ -182,14 +184,14 @@ main {
   flex: 1 1 320px;
   min-width: 320px;
   color: var(--text-color);
+  box-sizing: border-box; /* Garante que padding e borda sejam incluídos na largura */
 }
 
 .agenda-dados h2,
 .compartilhamento h2,
 .calendario h2 {
-    color: var(--text-color);
+  color: var(--text-color);
 }
-
 
 .agenda-dados form label,
 .compartilhamento form label,
@@ -213,6 +215,7 @@ textarea {
   font-size: 1rem;
   transition: border-color 0.3s ease;
   font-family: inherit;
+  box-sizing: border-box; /* Essencial para que padding não aumente a largura total */
 }
 
 input[type="text"]:focus,
@@ -249,7 +252,27 @@ button[type="submit"]:hover {
 @media (max-width: 900px) {
   .agenda-content {
     flex-direction: column;
-    margin: 1rem;
-    padding: 0 8px;
+    /* Ajustado para usar padding e não margin, para evitar transbordamento */
+    padding: 0 16px; /* Ajuste o padding conforme necessário para um bom espaçamento */
+    gap: 1rem; /* Reduz o espaçamento entre os blocos em telas pequenas */
+  }
+
+  /* Garante que os itens individuais também se ajustem */
+  .agenda-dados,
+  .compartilhamento,
+  .calendario {
+    min-width: unset; /* Remove o min-width para permitir que se ajustem completamente */
+    width: 100%; /* Garante que ocupem a largura total disponível */
+  }
+
+  /* Ajusta o padding do site-nav para telas menores, se necessário */
+  .site-nav {
+    padding: 15px 16px; /* Um pouco menos de padding para telas menores */
+  }
+
+  /* Centraliza o main em telas menores */
+  main {
+    max-width: 100%; /* Permite que o main ocupe a largura total */
+    padding: 0 16px; /* Ajusta o padding para telas menores */
   }
 }
