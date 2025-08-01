@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Agenda Inteligente - Nova Tarefa</title>
   <link rel="stylesheet" href="tarefas.css" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
+  </head>
 <body>
   <header>
     <nav class="site-nav" role="navigation" aria-label="Menu principal">
@@ -14,34 +13,33 @@
         <img src="logo.png" alt="Logo Agenda Inteligente" class="logo" />
         <h1>Agenda Inteligente</h1>
         <ul>
-         <li><a href="index.html">Início</a></li>
-         <li><a href="tarefa.html" aria-current="page">Tarefas</a></li>
-        <li><a href="usuario.html">Perfil</a></li>
-        <li><a href="agendas.html">Agendas</a></li>
-        <li><a href="recorrencia.html">Recorrência</a></li>
-        <li><a href="status.html">Status</a></li>
-        <li><a href="evento.html">Eventos</a></li>
-        <li><a href="prioridade.html">Prioridades</a></li>
-   
+          <li><a href="index.html">Início</a></li>
+          <li><a href="tarefa.html" aria-current="page">Tarefas</a></li>
+          <li><a href="usuario.html">Perfil</a></li>
+          <li><a href="agendas.html">Agendas</a></li>
+          <li><a href="recorrencia.html">Recorrência</a></li>
+          <li><a href="status.html">Status</a></li>
+          <li><a href="evento.html">Eventos</a></li>
+          <li><a href="prioridade.html">Prioridades</a></li>
         </ul>
       </div>
       <div class="nav-direita">
-        <button id="notificationBtn" aria-label="Notificações">🔔</button>
+        <div class="notification-area">
+          <button id="notificationBtn" aria-label="Notificações">🔔</button>
+          <div id="notificationDropdown" class="dropdown" hidden>
+            No momento, você não tem nenhuma notificação.
+          </div>
+        </div>
         <button id="modo-btn" aria-label="Alternar modo claro/escuro">🌙</button>
       </div>
     </nav>
   </header>
 
-  <div id="notificationDropdown" class="dropdown" hidden>
-    No momento, você não tem nenhuma notificação.
-  </div>
-
   <main>
     <div class="task-wrapper">
       <section class="task-form-section">
         <h1>Nova Tarefa</h1>
-        <form id="taskForm" method="GET">
-          <div>
+        <form id="taskForm"> <div>
             <label for="taskName">Nome da Tarefa</label>
             <input type="text" id="taskName" name="taskName" required />
           </div>
