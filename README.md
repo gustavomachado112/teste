@@ -22,7 +22,7 @@ Pessoas adultas que querem organizar suas tarefas diárias.
 
 ## 🚀 6. Requisitos Não Funcionais
 - **Desempenho rápido na consulta e atualização dos dados.**  
-- **Segurança básica para proteção dos dados pessoais (senha, email, telefone, CPF).**  
+- **Segurança básica .**  
 - **Usabilidade simples e clara para facilitar o uso por qualquer pessoa.**  
 - **Tempo de resposta adequado, especialmente para notificações em tempo real.**  
 - **Persistência local confiável dos dados (banco local).**
@@ -65,7 +65,7 @@ Pessoas adultas que querem organizar suas tarefas diárias.
 - **Validação dos formatos de data e dados pessoais.**
 
 ## 🖥️ 14. Plataforma Alvo
-- **Web e mobile**
+- **Web, foquei so pro computador**
 
 ## 🔒 15. Autenticação e Segurança
 - **Sistema com login por email e senha.**  
