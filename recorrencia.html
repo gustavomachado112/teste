@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recorrência - Agenda Inteligente</title>
+  <link rel="stylesheet" href="recorrencia.css" />
+  <script src="recorrencia.js" defer></script>
+</head>
+<body>
+
+<header>
+  <nav class="site-nav" role="navigation" aria-label="Menu principal">
+    <div class="nav-esquerda">
+      <img src="logo.png" alt="Logo Agenda Inteligente" class="logo" />
+      <h1>Agenda Inteligente</h1>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="tarefa.html">Tarefas</a></li>
+        <li><a href="usuario.html">Perfil</a></li>
+        <li><a href="agendas.html">Agendas</a></li>
+        <li><a href="recorrencia.html" aria-current="page">Recorrência</a></li>
+        <li><a href="status.html">Status</a></li>
+        <li><a href="evento.html">Eventos</a></li>
+        <li><a href="prioridade.html">Prioridades</a></li>
+      </ul>
+    </div>
+    <div class="nav-direita">
+      <button id="notificationBtn" aria-label="Notificações">🔔</button>
+      <button id="modo-btn" aria-label="Alternar modo claro/escuro">🌙</button>
+    </div>
+  </nav>
+</header>
+
+<div id="notificationDropdown" class="dropdown" hidden>
+  No momento você não tem nenhuma notificação.
+</div>
+
+<main>
+  <div class="container" role="main" aria-labelledby="pageTitle">
+    <h1 id="pageTitle">Registrar Recorrência de Problemas</h1>
+
+    <form id="recorrencia-form" aria-label="Formulário de Recorrência de Problemas">
+      <div class="form-group">
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" name="tipo" required>
+          <option value="evento">Evento</option>
+          <option value="tarefa">Tarefa</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Nome do evento ou tarefa" required aria-required="true" />
+      </div>
+
+      <div class="form-group">
+        <label for="frequencia">Frequência:</label>
+        <select id="frequencia" name="frequencia" required>
+          <option value="diaria">Diária</option>
+          <option value="semanal">Semanal</option>
+          <option value="mensal">Mensal</option>
+          <option value="personalizada">Personalizada</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="descricao">Descrição do Problema:</label>
+        <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva o problema em detalhes..." required aria-required="true"></textarea>
+      </div>
+
+      <button type="submit">Registrar Recorrência</button>
+    </form>
+  </div>
+</main>
+
+</body>
+</html>
