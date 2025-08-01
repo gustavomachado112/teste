@@ -1,3 +1,37 @@
+/* Variáveis CSS para temas */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --primary-color: #4f73ff;
+  --input-bg: #f1f1f1;
+  --border-color: #cccccc;
+  --header-bg: #ffffff;
+  --nav-link-color: #1a1a1a;
+  --nav-link-hover: #3366cc;
+  --button-bg: #3366cc;
+  --button-hover-bg: #254d99;
+  --panel-bg: #ffffff; /* Fundo dos painéis como task-wrapper, tips-panel */
+  --panel-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --comment-item-bg: #f0f0f0;
+}
+
+/* Modo Escuro */
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #e1e1e1;
+  --input-bg: #2c2c2c;
+  --border-color: #444;
+  --header-bg: #1e1e1e;
+  --nav-link-color: #e1e1e1;
+  --nav-link-hover: #88aaff;
+  --button-bg: #3366cc; /* Mantendo o azul para contraste */
+  --button-hover-bg: #254d99;
+  --panel-bg: #282828; /* Fundo mais escuro para painéis */
+  --panel-shadow: 0 2px 12px rgba(0, 0, 0, 0.6); /* Sombra mais forte no dark */
+  --comment-item-bg: #252525;
+}
+
+/* Reset básico e estilos globais */
 * {
   margin: 0;
   padding: 0;
@@ -15,27 +49,13 @@ body {
   align-items: center;
 }
 
-:root {
-  --bg-color: #ffffff;
-  --text-color: #1a1a1a;
-  --primary-color: #4f73ff;
-  --input-bg: #f1f1f1;
-  --border-color: #cccccc;
-}
-
-body.dark-mode {
-  --bg-color: #121212;
-  --text-color: #e1e1e1;
-  --input-bg: #2c2c2c;
-  --border-color: #444;
-}
-
+/* Navegação e Cabeçalho */
 .site-nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background-color: #fff;
+  background-color: var(--header-bg);
   padding: 15px 30px;
   display: flex;
   align-items: center;
@@ -43,12 +63,26 @@ body.dark-mode {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   border-radius: 0 0 16px 16px;
   z-index: 1000;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .site-nav h1 {
-  color: #1a1a1a;
+  color: var(--text-color);
   font-weight: 700;
   font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.nav-esquerda,
+.nav-direita {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Para melhor espaçamento entre logo/h1/menu e botões */
+}
+
+.logo {
+  height: 40px;
+  width: auto;
 }
 
 .site-nav ul {
@@ -58,7 +92,7 @@ body.dark-mode {
 }
 
 .site-nav ul li a {
-  color: #1a1a1a;
+  color: var(--nav-link-color);
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
@@ -67,88 +101,56 @@ body.dark-mode {
 
 .site-nav ul li a:hover,
 .site-nav ul li a[aria-current="page"] {
-  color: #3366cc;
+  color: var(--nav-link-hover);
   text-decoration: underline;
 }
 
-.nav-direita {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
+/* Botões de Notificação e Modo */
 #notificationBtn,
 #modo-btn {
-  background-color: #3366cc;
-  color: white;
+  background-color: var(--button-bg);
+  color: white; /* Cor do ícone */
   border: none;
   padding: 10px 14px;
   border-radius: 50px;
   cursor: pointer;
   font-size: 18px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
 }
 
 #notificationBtn:hover,
 #modo-btn:hover {
-  background-color: #254d99;
+  background-color: var(--button-hover-bg);
   transform: scale(1.1);
 }
 
-.nav-esquerda {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+/* Área de Notificação e Dropdown (Para o sininho) */
+.notification-area {
+    position: relative; /* Para posicionar o dropdown relativo a ele */
+    display: inline-block; /* Para que o botão e dropdown não ocupem a largura toda */
 }
 
-.logo {
-  height: 40px;
-  width: auto;
+.dropdown {
+    position: absolute;
+    top: 45px; /* Ajuste para aparecer logo abaixo do botão */
+    right: 0;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 12px;
+    box-shadow: var(--panel-shadow); /* Reutiliza a sombra do painel */
+    color: var(--text-color);
+    min-width: 220px;
+    z-index: 10; /* Garante que fique acima de outros elementos */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
-.site-nav ul {
-  margin-left: 20px;
-  display: flex;
-  gap: 20px;
-}
-
-.site-nav h1 {
-  font-size: 1.4rem;
-  margin-right: 10px;
-}
-
-body.dark-mode .site-nav {
-  background-color: #1e1e1e;
-  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .site-nav h1,
-body.dark-mode .site-nav ul li a {
-  color: #e1e1e1;
-}
-
-body.dark-mode .site-nav ul li a:hover,
-body.dark-mode .site-nav ul li a[aria-current="page"] {
-  color: #88aaff;
-  text-decoration: underline;
-}
-
-body.dark-mode #notificationBtn,
-body.dark-mode #modo-btn {
-  background-color: #3366cc;
-  color: #e1e1e1;
-}
-
-body.dark-mode #notificationBtn:hover,
-body.dark-mode #modo-btn:hover {
-  background-color: #254d99;
-}
-
+/* Main Content */
 main {
   padding: 30px 24px;
   display: flex;
   justify-content: center;
-  margin-top: 90px;
+  margin-top: 90px; /* Espaço para o cabeçalho fixo */
   width: 100%;
 }
 
@@ -157,17 +159,26 @@ main {
   gap: 40px;
   width: 100%;
   max-width: 1300px;
+  background-color: var(--panel-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: var(--panel-shadow);
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .task-form-section {
   flex: 2;
   min-width: 320px;
+  padding-right: 20px; /* Adicionado para separar do tips-panel */
+  border-right: 1px solid var(--border-color); /* Linha divisória */
+  transition: border-color 0.3s;
 }
 
 .task-form-section h1 {
   margin-bottom: 20px;
   font-size: 28px;
   color: var(--text-color);
+  transition: color 0.3s;
 }
 
 form > div {
@@ -179,6 +190,8 @@ form > div {
 label {
   font-weight: 500;
   margin-bottom: 6px;
+  color: var(--text-color);
+  transition: color 0.3s;
 }
 
 input,
@@ -189,6 +202,7 @@ select {
   border: 1px solid var(--border-color);
   background-color: var(--input-bg);
   color: var(--text-color);
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
 textarea {
@@ -211,94 +225,81 @@ button[type="submit"]:hover {
   background-color: #3a5dc8;
 }
 
+/* Tips Panel e Comentários */
 .tips-panel {
   flex: 1;
-  background-color: var(--input-bg);
+  background-color: var(--panel-bg); /* Usando variável de painel */
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 20px;
   color: var(--text-color);
   font-weight: 500;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: var(--panel-shadow);
   display: flex;
   flex-direction: column;
   gap: 30px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
 .tips-panel h2 {
   margin-bottom: 16px;
   font-weight: 700;
   font-size: 22px;
+  color: var(--text-color); /* Garante que o título mude */
+  transition: color 0.3s;
 }
 
 .tips-panel ul {
   list-style: disc inside;
   line-height: 1.6;
   font-size: 16px;
+  color: var(--text-color); /* Garante que a lista mude */
+  transition: color 0.3s;
 }
 
 .comment-section h2 {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
+  color: var(--text-color); /* Garante que o título mude */
+  transition: color 0.3s;
 }
 
 .comment-section textarea {
-    width: 100%;
-    min-height: 60px;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
-    background-color: var(--input-bg);
-    color: var(--text-color);
-    resize: vertical;
+  width: 100%;
+  min-height: 60px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  resize: vertical;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
 .comment-section button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
+  background-color: #28a745; /* Verde para adicionar comentário */
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
 }
 
 .comment-section button:hover {
-    background-color: #218838;
+  background-color: #218838;
 }
 
 .comment-item {
-    background-color: var(--bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 0.95em;
-    line-height: 1.4;
-    word-wrap: break-word;
-}
-
-body.dark-mode .comment-section textarea {
-    background-color: #2c2c2c;
-    color: #f5f5f5;
-    border-color: #555;
-}
-
-body.dark-mode .comment-item {
-    background-color: #252525;
-    border-color: #555;
-}
-
-
-.dropdown {
-  position: absolute;
-  top: 70px;
-  right: 20px;
-  background-color: var(--input-bg);
+  background-color: var(--comment-item-bg); /* Usando variável para o item */
   border: 1px solid var(--border-color);
   border-radius: 6px;
-  padding: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-  color: var(--text-color);
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 0.95em;
+  line-height: 1.4;
+  word-wrap: break-word;
+  color: var(--text-color); /* Garante que o texto do comentário mude */
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
