@@ -13,7 +13,7 @@
     <h1>Agenda Inteligente</h1>
     <p class="subtitle">Crie sua conta para começar</p>
 
-    <form class="cadastro-form" action="tarefa.html" method="post" onsubmit="return confirmarEnvio()">
+    <form class="cadastro-form" onsubmit="return handleFormSubmit(event)">
       <label for="nome">Nome</label>
       <input type="text" id="nome" name="nome" required>
 
@@ -38,26 +38,40 @@
   </div>
 
   <script>
-    const btn = document.getElementById('modo-btn');
+    // Lógica de alternância de tema
+    const modoBtn = document.getElementById('modo-btn');
     const body = document.body;
 
+    // Recupera o tema salvo ou define como 'light'
+    const temaSalvo = localStorage.getItem('tema') || 'light';
+    if (temaSalvo === 'dark') {
+      body.classList.add('dark-mode');
+      modoBtn.textContent = '☀️';
+    } else {
+      modoBtn.textContent = '🌙';
+    }
 
-    let modoAtual = 'light';
-
-    btn.addEventListener('click', () => {
-      if (modoAtual === 'dark') {
-        body.classList.remove('dark-mode');
-        btn.textContent = '🌙';
-        modoAtual = 'light';
-      } else {
-        body.classList.add('dark-mode');
-        btn.textContent = '☀️';
-        modoAtual = 'dark';
-      }
+    // Adiciona evento de clique para alternar o tema
+    modoBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      const novoTema = body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('tema', novoTema);
+      modoBtn.textContent = novoTema === 'dark' ? '☀️' : '🌙';
     });
 
-    function confirmarEnvio() {
-      return confirm("Tem certeza que deseja enviar o cadastro?");
+    // Nova função para lidar com o envio do formulário
+    function handleFormSubmit(event) {
+      event.preventDefault(); 
+
+      const confirmacao = confirm("Tem certeza que deseja enviar o cadastro?");
+      if (confirmacao) {
+        alert("Cadastro enviado com sucesso! Redirecionando para tarefas.");
+        // Limpa o formulário
+        event.target.reset(); 
+        // Redireciona para a página tarefa.html
+        window.location.href = "tarefa.html";
+      }
+      return false; 
     }
   </script>
 </body>
