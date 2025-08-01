@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Agenda Inteligente</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <button id="modo-btn" aria-label="Alternar modo claro/escuro">🌙</button>
+
+  <div class="login-container">
+    <h1>Agenda Inteligente</h1>
+    <p class="subtitle">Organize sua rotina com praticidade</p>
+
+  <form class="login-form" action="#" method="post">
+  <label for="email">E-mail</label>
+  <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required />
+
+  <label for="senha">Senha</label>
+  <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
+
+  <button type="submit" formaction="tarefa.html" aria-label="Entrar na conta">Entrar</button>
+</form>
+
+    <p class="cadastro-texto">
+      Não é cadastrado? <a href="cadastro.html">Cadastre-se aqui</a>
+    </p>
+  </div>
+
+  <script>
+    const btn = document.getElementById('modo-btn');
+    const body = document.body;
+
+    
+    const temaSalvo = localStorage.getItem('tema') || 'light';
+    if (temaSalvo === 'dark') {
+      body.classList.add('dark-mode');
+      btn.textContent = '☀️';
+    }
+
+    btn.addEventListener('click', () => {
+      if (body.classList.contains('dark-mode')) {
+        body.classList.remove('dark-mode');
+        btn.textContent = '🌙';
+        localStorage.setItem('tema', 'light');
+      } else {
+        body.classList.add('dark-mode');
+        btn.textContent = '☀️';
+        localStorage.setItem('tema', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
