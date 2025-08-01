@@ -29,20 +29,18 @@
   </div>
 
   <script>
-    // Lógica de alternância de tema
+    // Lógica de alternância de tema (já ajustada)
     const modoBtn = document.getElementById('modo-btn');
     const body = document.body;
 
-    // Recupera o tema salvo no localStorage ou define como 'light'
     const temaSalvo = localStorage.getItem('tema') || 'light';
     if (temaSalvo === 'dark') {
       body.classList.add('dark-mode');
       modoBtn.textContent = '☀️';
-    } else { // Adicionado 'else' para definir o ícone correto ao iniciar em modo claro
+    } else {
         modoBtn.textContent = '🌙';
     }
 
-    // Adiciona evento de clique para alternar o tema
     modoBtn.addEventListener('click', () => {
       body.classList.toggle('dark-mode');
       const novoTema = body.classList.contains('dark-mode') ? 'dark' : 'light';
@@ -50,24 +48,17 @@
       modoBtn.textContent = novoTema === 'dark' ? '☀️' : '🌙';
     });
 
-    // Nova função para lidar com o envio do formulário de login
+    // Função para lidar com o envio do formulário de login
     function handleLoginSubmit(event) {
-      event.preventDefault(); // Impede o envio padrão do formulário (e o erro 405)
+      event.preventDefault(); // ESSA LINHA IMPEDE O ENVIO PADRÃO DO FORMULÁRIO
 
-      // Coletar dados do formulário (opcional, apenas para o alert)
-      const email = document.getElementById('email').value;
-      const senha = document.getElementById('senha').value;
-
-      // Simular um login bem-sucedido
+      const email = document.getElementById('email').value; // Apenas para o alert
       alert(`Bem-vindo, ${email}! Redirecionando para as tarefas.`);
-      
-      // Limpa o formulário (opcional para login, mas boa prática)
-      event.target.reset();
 
-      // Redireciona para a página de tarefas
-      window.location.href = "tarefa.html";
+      event.target.reset(); // Limpa o formulário
+      window.location.href = "tarefa.html"; // Redireciona para a página de tarefas
 
-      return false; // Impede qualquer ação padrão adicional
+      return false; // Garante que nenhuma outra ação padrão seja executada
     }
   </script>
 </body>
