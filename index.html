@@ -13,15 +13,15 @@
     <h1>Agenda Inteligente</h1>
     <p class="subtitle">Organize sua rotina com praticidade</p>
 
-  <form class="login-form" action="#" method="post">
-  <label for="email">E-mail</label>
-  <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required />
+    <form class="login-form" onsubmit="return handleLoginSubmit(event)">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required />
 
-  <label for="senha">Senha</label>
-  <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
 
-  <button type="submit" formaction="tarefa.html" aria-label="Entrar na conta">Entrar</button>
-</form>
+      <button type="submit" aria-label="Entrar na conta">Entrar</button>
+    </form>
 
     <p class="cadastro-texto">
       Não é cadastrado? <a href="cadastro.html">Cadastre-se aqui</a>
@@ -29,27 +29,46 @@
   </div>
 
   <script>
-    const btn = document.getElementById('modo-btn');
+    // Lógica de alternância de tema
+    const modoBtn = document.getElementById('modo-btn');
     const body = document.body;
 
-    
+    // Recupera o tema salvo no localStorage ou define como 'light'
     const temaSalvo = localStorage.getItem('tema') || 'light';
     if (temaSalvo === 'dark') {
       body.classList.add('dark-mode');
-      btn.textContent = '☀️';
+      modoBtn.textContent = '☀️';
+    } else { // Adicionado 'else' para definir o ícone correto ao iniciar em modo claro
+        modoBtn.textContent = '🌙';
     }
 
-    btn.addEventListener('click', () => {
-      if (body.classList.contains('dark-mode')) {
-        body.classList.remove('dark-mode');
-        btn.textContent = '🌙';
-        localStorage.setItem('tema', 'light');
-      } else {
-        body.classList.add('dark-mode');
-        btn.textContent = '☀️';
-        localStorage.setItem('tema', 'dark');
-      }
+    // Adiciona evento de clique para alternar o tema
+    modoBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      const novoTema = body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('tema', novoTema);
+      modoBtn.textContent = novoTema === 'dark' ? '☀️' : '🌙';
     });
+
+    // Nova função para lidar com o envio do formulário de login
+    function handleLoginSubmit(event) {
+      event.preventDefault(); // Impede o envio padrão do formulário (e o erro 405)
+
+      // Coletar dados do formulário (opcional, apenas para o alert)
+      const email = document.getElementById('email').value;
+      const senha = document.getElementById('senha').value;
+
+      // Simular um login bem-sucedido
+      alert(`Bem-vindo, ${email}! Redirecionando para as tarefas.`);
+      
+      // Limpa o formulário (opcional para login, mas boa prática)
+      event.target.reset();
+
+      // Redireciona para a página de tarefas
+      window.location.href = "tarefa.html";
+
+      return false; // Impede qualquer ação padrão adicional
+    }
   </script>
 </body>
 </html>
