@@ -38,7 +38,7 @@
   </div>
 
   <script>
-    // Lógica de alternância de tema (já ajustada)
+    
     const modoBtn = document.getElementById('modo-btn');
     const body = document.body;
 
@@ -59,15 +59,15 @@
 
     // Função para lidar com o envio do formulário de cadastro
     function handleFormSubmit(event) {
-      event.preventDefault(); // ESSA LINHA IMPEDE O ENVIO PADRÃO DO FORMULÁRIO
+      event.preventDefault(); 
 
       const confirmacao = confirm("Tem certeza que deseja enviar o cadastro?");
       if (confirmacao) {
         alert("Cadastro enviado com sucesso! Redirecionando para tarefas.");
         event.target.reset(); // Limpa o formulário
-        window.location.href = "tarefa.html"; // Redireciona para a página de tarefas
+        window.location.href = "tarefa.html"; 
       }
-      return false; // Garante que nenhuma outra ação padrão seja executada
+      return false; 
     }
   </script>
 </body>
