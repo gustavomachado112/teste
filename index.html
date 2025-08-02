@@ -48,17 +48,17 @@
       modoBtn.textContent = novoTema === 'dark' ? '☀️' : '🌙';
     });
 
-    // Função para lidar com o envio do formulário de login
+    
     function handleLoginSubmit(event) {
-      event.preventDefault(); // ESSA LINHA IMPEDE O ENVIO PADRÃO DO FORMULÁRIO
+      event.preventDefault(); 
 
-      const email = document.getElementById('email').value; // Apenas para o alert
+      const email = document.getElementById('email').value; 
       alert(`Bem-vindo, ${email}! Redirecionando para as tarefas.`);
 
-      event.target.reset(); // Limpa o formulário
-      window.location.href = "tarefa.html"; // Redireciona para a página de tarefas
+      event.target.reset(); 
+      window.location.href = "tarefa.html"; 
 
-      return false; // Garante que nenhuma outra ação padrão seja executada
+      return false; 
     }
   </script>
 </body>
