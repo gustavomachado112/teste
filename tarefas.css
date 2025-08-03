@@ -44,7 +44,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-x: hidden;
 }
 
 .site-nav {
@@ -295,104 +294,4 @@ button[type="submit"]:hover {
   word-wrap: break-word;
   color: var(--text-color);
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-}
-
-@media (max-width: 768px) {
-  .site-nav {
-    padding: 10px 15px;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .site-nav h1 {
-    font-size: 1.2rem;
-    margin-right: 0;
-    text-align: center;
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  .nav-esquerda,
-  .nav-direita {
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .site-nav ul {
-    gap: 10px;
-    margin-left: 0;
-    justify-content: center;
-    width: 100%;
-  }
-
-  main {
-    padding: 20px 15px;
-    margin-top: 80px;
-  }
-
-  .task-wrapper {
-    flex-direction: column;
-    gap: 30px;
-    padding: 15px;
-    box-shadow: var(--panel-shadow);
-  }
-
-  .task-form-section {
-    padding-right: 0;
-    border-right: none;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 30px;
-  }
-
-  .tips-panel {
-    border: none;
-    box-shadow: none;
-    padding: 0;
-  }
-
-  input,
-  textarea,
-  select {
-    padding: 8px;
-  }
-
-  .comment-item {
-    padding: 8px;
-    font-size: 0.9em;
-  }
-}
-
-@media (max-width: 480px) {
-  .site-nav {
-    padding: 10px;
-  }
-
-  .site-nav h1 {
-    font-size: 1rem;
-  }
-
-  .site-nav ul li a {
-    font-size: 0.85rem;
-  }
-
-  #notificationBtn,
-  #modo-btn {
-    padding: 8px 10px;
-    font-size: 16px;
-  }
-
-  main {
-    padding: 15px 10px;
-  }
-
-  .task-wrapper {
-    padding: 10px;
-    gap: 20px;
-  }
-
-  .task-form-section h1 {
-    font-size: 24px;
-  }
 }
