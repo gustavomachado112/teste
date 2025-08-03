@@ -32,7 +32,7 @@ body.dark-mode {
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Essencial para um layout responsivo */
 }
 
 body {
@@ -44,6 +44,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden; /* Evita barra de rolagem horizontal */
 }
 
 .site-nav {
@@ -69,11 +70,16 @@ body {
   transition: color 0.3s;
 }
 
-.nav-esquerda,
-.nav-direita {
+.nav-esquerda {
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.nav-direita {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .logo {
@@ -81,13 +87,16 @@ body {
   width: auto;
 }
 
-.site-nav ul {
+.site-nav .nav-links { /* Usando a nova classe */
   list-style: none;
   display: flex;
   gap: 20px;
+  margin: 0;
+  padding: 0;
+  margin-left: 20px;
 }
 
-.site-nav ul li a {
+.site-nav .nav-links li a {
   color: var(--nav-link-color);
   text-decoration: none;
   font-weight: 600;
@@ -95,8 +104,8 @@ body {
   transition: color 0.3s ease;
 }
 
-.site-nav ul li a:hover,
-.site-nav ul li a[aria-current="page"] {
+.site-nav .nav-links li a:hover,
+.site-nav .nav-links li a[aria-current="page"] {
   color: var(--nav-link-hover);
   text-decoration: underline;
 }
@@ -139,8 +148,20 @@ body {
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
+/* Esconde o botão de menu hambúrguer por padrão em desktop */
+.hamburger-menu {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-color);
+  padding: 5px;
+  transition: color 0.3s;
+}
+
 main {
-  padding: 30px 24px;
+  padding: 30px 20px; /* Reduzindo padding lateral para mobile */
   display: flex;
   justify-content: center;
   margin-top: 90px;
@@ -149,6 +170,7 @@ main {
 
 .task-wrapper {
   display: flex;
+  flex-direction: row; /* Padrão para desktop */
   gap: 40px;
   width: 100%;
   max-width: 1300px;
@@ -190,6 +212,7 @@ label {
 input,
 textarea,
 select {
+  width: 100%; /* Garante que ocupem a largura total disponível */
   padding: 10px;
   border-radius: 6px;
   border: 1px solid var(--border-color);
@@ -212,6 +235,7 @@ button[type="submit"] {
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s;
+  width: 100%; /* Para que o botão ocupe toda a largura em mobile */
 }
 
 button[type="submit"]:hover {
@@ -294,4 +318,149 @@ button[type="submit"]:hover {
   word-wrap: break-word;
   color: var(--text-color);
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+/* --- MEDIA QUERIES PARA RESPONSIVIDADE --- */
+
+/* Telas menores que 1024px (tablets e celulares grandes) */
+@media (max-width: 1024px) {
+  .site-nav {
+    padding: 15px 20px; /* Reduz padding do nav */
+  }
+
+  .site-nav .nav-links {
+    gap: 15px; /* Reduz espaço entre itens do nav */
+    margin-left: 10px;
+  }
+
+  .task-wrapper {
+    flex-direction: column; /* Empilha as seções em colunas */
+    gap: 20px; /* Reduz o espaçamento entre as seções empilhadas */
+    padding: 15px; /* Reduz padding do wrapper */
+  }
+
+  .task-form-section {
+    padding-right: 0; /* Remove padding extra */
+    border-right: none; /* Remove a borda vertical */
+    border-bottom: 1px solid var(--border-color); /* Adiciona borda horizontal */
+    padding-bottom: 20px; /* Adiciona padding abaixo da borda */
+    min-width: unset; /* Permite que ocupe a largura total */
+  }
+
+  .tips-panel {
+    border: none; /* Remove borda para ficar mais limpo */
+    box-shadow: none; /* Remove sombra extra */
+    padding: 0; /* Remove padding do panel para encaixar melhor */
+  }
+}
+
+/* Telas menores que 768px (smartphones e tablets pequenos) */
+@media (max-width: 768px) {
+  .site-nav {
+    flex-wrap: wrap; /* Permite que os itens do nav quebrem linha */
+    justify-content: center; /* Centraliza itens */
+    padding: 10px 15px;
+  }
+
+  .nav-esquerda {
+    flex-basis: 100%; /* Ocupa largura total */
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .site-nav h1 {
+    font-size: 1.3rem; /* Diminui tamanho do título */
+  }
+
+  .site-nav .nav-links {
+    display: none; /* Esconde os links por padrão */
+    flex-direction: column; /* Links em coluna no mobile */
+    width: 100%;
+    background-color: var(--header-bg);
+    position: absolute;
+    top: 70px; /* Abaixo do cabeçalho */
+    left: 0;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .site-nav .nav-links.active {
+    display: flex; /* Mostra os links quando a classe 'active' está presente (ativada pelo JS) */
+  }
+
+  .site-nav .nav-links li {
+    text-align: center;
+    padding: 8px 0;
+  }
+
+  .nav-direita {
+    width: 100%; /* Ocupa largura total */
+    justify-content: center;
+  }
+
+  .hamburger-menu {
+    display: block; /* Mostra o botão hambúrguer */
+    margin-left: 15px;
+  }
+
+  main {
+    padding: 20px 10px; /* Mais redução de padding */
+    margin-top: 130px; /* Aumenta margem superior para acomodar o nav expandido */
+  }
+
+  .task-wrapper {
+    padding: 10px; /* Mais redução de padding */
+  }
+
+  .task-form-section h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  button[type="submit"] {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+}
+
+/* Telas menores que 480px (smartphones menores) */
+@media (max-width: 480px) {
+  .site-nav {
+    padding: 10px;
+  }
+
+  .site-nav h1 {
+    font-size: 1.2rem;
+  }
+
+  .logo {
+    height: 35px;
+  }
+
+  #notificationBtn,
+  #modo-btn {
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+
+  main {
+    padding: 15px 8px;
+  }
+
+  .task-wrapper {
+    padding: 8px;
+    gap: 15px;
+  }
+
+  .task-form-section h1 {
+    font-size: 22px;
+  }
+
+  .tips-panel h2, .comment-section h2 {
+    font-size: 20px;
+  }
+
+  input, textarea, select {
+    padding: 8px;
+  }
 }
