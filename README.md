@@ -1,4 +1,3 @@
-a foto do banco de dados ta dentro do back end  , algumas coisas que eu escrevi no readme pode nao esta exatemente parecido com o site pois ocoreu mudancas criativas em alguns lugares ou decisoes mas ainda ta bem parecido com as respostas
 
 # 📅 Agenda Inteligente
 
@@ -89,6 +88,8 @@ Pessoas adultas que querem organizar suas tarefas diárias.
 - **Permissões de compartilhamento são respeitadas.**  
 - **Sistema é estável, responsivo e de fácil uso para o público-alvo.**
 
+
+a foto do banco de dados ta dentro do back end  , algumas coisas que eu escrevi no readme pode nao esta exatemente parecido com o site pois ocoreu mudancas criativas em alguns lugares ou decisoes mas ainda ta bem parecido com as respostas , bom e uma dificuldade que eu tive foi a responsivildade do navbar no celular , nao consegui resolver , pois teria que alterar um monte de coisa da estrutura do site em si  , os elementos funcionavam bem em telas menores so que o navbar de jeito nenhum entao tive que focar so desktop , ele feito so pra plataforma escolhida , mas esse foi o unico problema ,os commits de hj foi tentar resilver isso mas nao deu certo
 
 ## 💻 Requisitos front-end
 - 🧩 1.Responsividade
