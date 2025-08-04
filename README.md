@@ -1,3 +1,5 @@
+a foto do banco de dados ta dentro do back end  , algumas coisas que eu escrevi no readme pode nao esta exatemente parecido com o site pois ocoreu mudancas criativas em alguns lugares ou decisoes mas ainda ta bem parecido com as respostas
+
 # 📅 Agenda Inteligente
 
 ## 📌 1. Nome do Projeto
