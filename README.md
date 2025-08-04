@@ -66,7 +66,7 @@ Pessoas adultas que querem organizar suas tarefas diárias.
 - **Validação dos formatos de data e dados pessoais.**
 
 ## 🖥️ 14. Plataforma Alvo
-- **Web, foquei so pro computador , no celular tive problemas pra deixar igual do computador ,entao tive que abandonar a plataforma android**
+- **Web, foquei so pro computador , no celular tive problemas pra deixar igual do computador ,entao tive que abandonar a plataforma android, problema com o navbar pra celular**
 
 ## 🔒 15. Autenticação e Segurança
 - **Sistema com login por email e senha.**  
