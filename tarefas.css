@@ -143,7 +143,7 @@ main {
   padding: 30px 24px;
   display: flex;
   justify-content: center;
-  margin-top: 100px; 
+  margin-top: 100px;
   width: 100%;
 }
 
@@ -298,50 +298,48 @@ button[type="submit"]:hover {
 
 @media (max-width: 768px) {
   .site-nav {
-    height: auto;
-    padding-bottom: 20px;
-    align-items: center;
+    flex-direction: column;
+    padding: 15px 10px;
+    align-items: flex-start;
+    gap: 15px;
   }
 
   .nav-esquerda {
-    flex-direction: row;
-    justify-content: center;
     width: 100%;
-    margin-bottom: 15px;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  .site-nav h1 {
-    font-size: 1.3rem;
-    margin-left: 10px;
+  .nav-esquerda h1 {
+    display: none;
   }
 
   .site-nav ul {
     flex-direction: column;
-    gap: 10px;
     width: 100%;
-    align-items: center;
-    margin-top: 10px;
+    gap: 0;
   }
 
-  .site-nav ul li a {
-    font-size: 1rem;
-    padding: 10px 0;
+  .site-nav ul li {
     width: 100%;
-    display: block;
     text-align: center;
   }
 
+  .site-nav ul li a {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+    display: block;
+  }
+
   .nav-direita {
-    margin-top: 20px;
     width: 100%;
     justify-content: center;
-    gap: 12px;
   }
 
   main {
     padding: 20px 12px;
     flex-direction: column;
-    margin-top: 190px; 
+    margin-top: 190px;
   }
 
   .task-wrapper {
