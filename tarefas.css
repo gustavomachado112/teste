@@ -140,12 +140,11 @@ body {
 }
 
 main {
-  padding: 30px 24px;
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
-  width: 100%;
+  padding: 20px 12px;
+  flex-direction: column;
+  margin-top: 220px;
 }
+
 
 .task-wrapper {
   display: flex;
