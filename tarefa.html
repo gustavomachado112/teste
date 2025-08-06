@@ -12,6 +12,8 @@
       <div class="nav-esquerda">
         <img src="logo.png" alt="Logo Agenda Inteligente" class="logo" />
         <h1>Agenda Inteligente</h1>
+        <!-- Botão do menu hambúrguer -->
+        <button id="menu-toggle" aria-label="Abrir menu">☰</button>
         <ul>
           <li><a href="index.html">Início</a></li>
           <li><a href="tarefa.html" aria-current="page">Tarefas</a></li>
@@ -37,67 +39,67 @@
 
   <main>
     <div class="task-wrapper">
-      <section class="task-form-section">
-        <h1>Nova Tarefa</h1>
-        <form id="taskForm">
-          <div>
-            <label for="taskName">Nome da Tarefa</label>
-            <input type="text" id="taskName" name="taskName" required />
-          </div>
-          <div>
-            <label for="creationDate">Data de Criação</label>
-            <input type="date" id="creationDate" name="creationDate" required />
-          </div>
-          <div>
-            <label for="dueDate">Data Limite para Fazer</label>
-            <input type="date" id="dueDate" name="dueDate" required />
-          </div>
-          <div>
-            <label for="description">Descrição da Tarefa</label>
-            <textarea id="description" name="description" required></textarea>
-          </div>
-          <div>
-            <label for="attachmentLink">Link do Anexo</label>
-            <input
-              type="url"
-              id="attachmentLink"
-              name="attachmentLink"
-              placeholder="http://..."
-              pattern="https?://.+"
-              title="Insira uma URL válida"
-            />
-          </div>
-          <div>
-            <label for="category">Categoria</label>
-            <select id="category" name="category">
-              <option value="" selected>Selecione</option>
-              <option value="trabalho">Trabalho</option>
-              <option value="pessoal">Pessoal</option>
-              <option value="estudo">Estudo</option>
-              <option value="outros">Outros</option>
-            </select>
-          </div>
-          <button type="submit">Salvar Tarefa</button>
-        </form>
-      </section>
-
-      <aside class="tips-panel">
-        <h2>Dicas Rápidas</h2>
-        <ul>
-          <li>Use prazos realistas</li>
-          <li>Organize por categoria</li>
-          <li>Adicione anexos úteis</li>
-        </ul>
-
-        <div class="comment-section">
-          <h2>Comentários</h2>
-          <textarea id="commentInput" placeholder="Adicionar um comentário..."></textarea>
-          <button id="addCommentBtn">Adicionar Comentário</button>
-          <div id="commentsList">
+        <section class="task-form-section">
+          <h1>Nova Tarefa</h1>
+          <form id="taskForm">
+            <div>
+              <label for="taskName">Nome da Tarefa</label>
+              <input type="text" id="taskName" name="taskName" required />
             </div>
-        </div>
-      </aside>
-    </div>
+            <div>
+              <label for="creationDate">Data de Criação</label>
+              <input type="date" id="creationDate" name="creationDate" required />
+            </div>
+            <div>
+              <label for="dueDate">Data Limite para Fazer</label>
+              <input type="date" id="dueDate" name="dueDate" required />
+            </div>
+            <div>
+              <label for="description">Descrição da Tarefa</label>
+              <textarea id="description" name="description" required></textarea>
+            </div>
+            <div>
+              <label for="attachmentLink">Link do Anexo</label>
+              <input
+                type="url"
+                id="attachmentLink"
+                name="attachmentLink"
+                placeholder="http://..."
+                pattern="https?://.+"
+                title="Insira uma URL válida"
+              />
+            </div>
+            <div>
+              <label for="category">Categoria</label>
+              <select id="category" name="category">
+                <option value="" selected>Selecione</option>
+                <option value="trabalho">Trabalho</option>
+                <option value="pessoal">Pessoal</option>
+                <option value="estudo">Estudo</option>
+                <option value="outros">Outros</option>
+              </select>
+            </div>
+            <button type="submit">Salvar Tarefa</button>
+          </form>
+        </section>
+  
+        <aside class="tips-panel">
+          <h2>Dicas Rápidas</h2>
+          <ul>
+            <li>Use prazos realistas</li>
+            <li>Organize por categoria</li>
+            <li>Adicione anexos úteis</li>
+          </ul>
+  
+          <div class="comment-section">
+            <h2>Comentários</h2>
+            <textarea id="commentInput" placeholder="Adicionar um comentário..."></textarea>
+            <button id="addCommentBtn">Adicionar Comentário</button>
+            <div id="commentsList">
+              </div>
+          </div>
+        </aside>
+      </div>
   </main>
 
   <script src="tarefa.js"></script>
