@@ -88,4 +88,3 @@ if (menuToggle && navLinks) {
 } else {
   console.error("Botão do menu ou lista de links da navbar não encontrado.");
 }
-
