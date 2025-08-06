@@ -78,3 +78,14 @@ if (commentInput && addCommentBtn && commentsList) {
 } else {
   console.error("Elementos de comentário (input, botão ou lista) não encontrados no HTML.");
 }
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.querySelector('.site-nav ul');
+
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+} else {
+  console.error("Botão do menu ou lista de links da navbar não encontrado.");
+}
+
