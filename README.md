@@ -1,4 +1,4 @@
-PROFESSOR os comits de hj foi pra mexer ne readme e em um css ue estava com problema
+
 # 📅 Agenda Inteligente
 
 ## 📌 1. Nome do Projeto
