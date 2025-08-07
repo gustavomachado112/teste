@@ -66,3 +66,20 @@ if (menuToggle && navLinks) {
 } else {
   console.error("Botão do menu ou lista de links da navbar não encontrado.");
 }
+const commentInput = document.getElementById('commentInput');
+const addCommentBtn = document.getElementById('addCommentBtn');
+
+if (commentInput && addCommentBtn) {
+  addCommentBtn.addEventListener('click', () => {
+    const commentText = commentInput.value.trim();
+
+    if (commentText) {
+      alert("Comentário adicionado com sucesso!");
+      commentInput.value = '';
+    } else {
+      alert("Por favor, digite um comentário antes de adicionar.");
+    }
+  });
+} else {
+  console.error("Campo de comentário ou botão não encontrado no HTML.");
+}
