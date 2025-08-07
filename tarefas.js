@@ -44,9 +44,7 @@ const form = document.getElementById('taskForm');
 if (form) {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-
     const confirmacao = confirm("Deseja realmente salvar esta tarefa?");
-
     if (confirmacao) {
       alert("Tarefa salva com sucesso!");
       form.reset();
@@ -58,26 +56,6 @@ if (form) {
   console.error("Formulário de tarefa (ID 'taskForm') não encontrado no HTML.");
 }
 
-const commentInput = document.getElementById('commentInput');
-const addCommentBtn = document.getElementById('addCommentBtn');
-const commentsList = document.getElementById('commentsList');
-
-if (commentInput && addCommentBtn && commentsList) {
-  addCommentBtn.addEventListener('click', () => {
-      const commentText = commentInput.value.trim();
-      if (commentText) {
-          const commentDiv = document.createElement('div');
-          commentDiv.classList.add('comment-item');
-          commentDiv.innerHTML = `<p>${commentText}</p>`;
-          commentsList.appendChild(commentDiv);
-          commentInput.value = '';
-      } else {
-          alert('Por favor, digite um comentário antes de adicionar.');
-      }
-  });
-} else {
-  console.error("Elementos de comentário (input, botão ou lista) não encontrados no HTML.");
-}
 const menuToggle = document.getElementById('menu-toggle');
 const navLinks = document.querySelector('.site-nav ul');
 
